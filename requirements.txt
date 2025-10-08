@@ -1,0 +1,6 @@
+# this is where all the libraries
+# go for easy installation (pip install -r requirements.txt)
+
+# e.g.
+#txtanalyser==1.0
+#numpy==2.2
