@@ -16,8 +16,8 @@ class Analysis:
         with open(file_path, 'r') as file:
             text = file.read()   # Read the file
             text = text.lower()  # lowercase everything
-            text = re.sub(r"[,-_:'""]", "", text) # replace unnecessary operations
-
+            text = re.sub(r"[,-_:'""]", "", text) # replace unnecessary operations w non
+            print("Text successfully read from file.")
         return text
 
 
