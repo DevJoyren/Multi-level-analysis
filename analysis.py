@@ -1,7 +1,6 @@
 # Imports >>>
 
 
-
 class Analysis:
     def __init__(self):
         self.total_words = 0
@@ -14,7 +13,10 @@ class Analysis:
         :param file_path:
         :return:
         """
-        ...
+        with open(file_path, 'r') as file:
+            text = file.read()
+            print(text)
+
 
 
     def sentence_analyser(self, text):
