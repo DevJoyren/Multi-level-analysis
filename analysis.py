@@ -1,5 +1,5 @@
 # Imports >>>
-
+import re
 
 class Analysis:
     def __init__(self):
@@ -14,9 +14,11 @@ class Analysis:
         :return:
         """
         with open(file_path, 'r') as file:
-            text = file.read()
-            print(text)
+            text = file.read()   # Read the file
+            text = text.lower()  # lowercase everything
+            text = re.sub(r"[,-_:'""]", "", text) # replace unnecessary operations
 
+        return text
 
 
     def sentence_analyser(self, text):
@@ -25,6 +27,7 @@ class Analysis:
         :param text:
         :return:
         """
+
         ...
 
 

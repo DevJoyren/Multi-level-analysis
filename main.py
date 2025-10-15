@@ -4,7 +4,11 @@ file_path = './artificial_intelligence.txt'
 
 if __name__ == '__main__':
     analysis = Analysis()
-    analysis.text_input(file_path)
+
+    text = analysis.text_input(file_path)
+    print(text)
+
+
 
 
 
