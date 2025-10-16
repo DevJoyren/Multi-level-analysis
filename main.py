@@ -6,7 +6,8 @@ if __name__ == '__main__':
     analysis = Analysis()
 
     text = analysis.text_input(file_path)
-    print(text)
+    analysis.word_analyser(text)
+
 
 
 
