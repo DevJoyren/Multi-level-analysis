@@ -74,8 +74,6 @@ class Analysis:
         self.unique_words = Counter(self.words)
 
         # The length of the list of unique words in numbers
-
-
         # The richness of unique words to the total of words
         # times a hundred to make it a percentage wise
         vocabulary_size = len(self.unique_words)
@@ -109,9 +107,6 @@ class Analysis:
             "top20_percentage": round(top20_percentage, 2), # 2 decimals
 
         })
-
-        # test with printing out the list of statistics
-        print(self.stats)
 
 
 

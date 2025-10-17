@@ -11,3 +11,5 @@ if __name__ == '__main__':
     text = analysis.handle_text(file_path)
     analysis.word_analyser(text)
 
+    # test by printing all statistics
+    print(analysis.stats)
