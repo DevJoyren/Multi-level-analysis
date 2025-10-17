@@ -82,11 +82,11 @@ class Analysis:
         # Counts each character inside all words and organizes them based on amount of characters (length)
         # Also gets the most common length
         self.word_len = Counter(len(w) for w in self.words if w)
-        most_common_word_len = self.word_len.most_common(1)[0][0] if self.word_len else 0
+        most_common_word_len = self.word_len.most_common(1)[0][0] if self.word_len else 0 # no idea :3
 
         # find the hapax inside the given text.
         # Hapax is a word OR phrase that appears only once in a given body of text
-        hapax_count = sum(1 for w, c in self.unique_words.items() if c == 1)
+        hapax_count = sum(1 for w, c in self.unique_words.items() if c == 1) # complicated line but alright
 
         # find the top 20 most words inside the text and counts them
         # how much is that in total to total words?
