@@ -1,6 +1,7 @@
 # Imports >>>
 import re
 from collections import Counter
+from pathlib import Path
 
 
 class Analysis:
@@ -21,24 +22,26 @@ class Analysis:
         self.stats = {}
 
 
-    def text_input(self, file_path:str) -> str:
+    def handle_text(self, file_path:str) -> str:
         """
         Handles the text input from the user.
         :param file_path:
         :return: text
         """
-        with open(file_path, 'r') as file:
-            text = file.read()   # Read the file
-            text = text.lower()  # lowercase everything
-            text = re.sub(r"[,-_:'""]", "", text) # replace unnecessary operations w non
+        text = Path(file_path).read_text(encoding='utf-8', errors='ignore').lower()
 
-            # TODO more normalization inside the text
+        # normalize whitespace
+        text = re.sub(r"\s", " ", text)
 
-            print("Text successfully read from file.")
+        # Remove most punctuation,
+        # keep ? . ! for sentence splitting
+        # Important: replace with space, then squeeze spaces
+        text = re.sub(r"[\",:;()\[\]{}“”‘’`~@#$%^&*+=/\\|<>]", " ", text)
+
         return text
 
 
-    def sentence_analyser(self, text: str) -> str:
+    def sentence_analyser(self, text: str) -> None:
         """
         :param text:
 
@@ -49,7 +52,6 @@ class Analysis:
     def word_analyser(self, text:str) -> None :
         """
         :param text:
-
         Analyze words and compute statistics.
          - total words
          - unique words (vocabulary size)
@@ -58,6 +60,8 @@ class Analysis:
          - word count
          - hapax words (appear exactly once)
          - top 20 words
+
+         puts everything inside a list called self.stats
         """
 
         # Matches any single "word" character (alphanumeric or underscore). Equivalent to [a-zA-Z0-9_].
@@ -65,12 +69,13 @@ class Analysis:
         self.words = re.findall(r"[a-zA-Z0-9]+(?:'[a-zA-Z0-9]+)?", text)
 
         # The length of the words list equals to the number of words in numbers
-        # The unique words is a list of words all words are only counted once
-        # so no duplicates
+        # The unique words is a list of words all words are only counted once so no duplicates
         self.total_words = len(self.words)
         self.unique_words = Counter(self.words)
 
         # The length of the list of unique words in numbers
+
+
         # The richness of unique words to the total of words
         # times a hundred to make it a percentage wise
         vocabulary_size = len(self.unique_words)

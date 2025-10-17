@@ -8,6 +8,6 @@ if __name__ == '__main__':
 
     analysis = Analysis()
 
-    text = analysis.text_input(file_path)
+    text = analysis.handle_text(file_path)
     analysis.word_analyser(text)
 
