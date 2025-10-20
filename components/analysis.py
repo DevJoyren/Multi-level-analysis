@@ -95,8 +95,8 @@ class Analysis:
         top20_percentage = (top20_total / self.total_words) * 100 if self.total_words else 0.0
 
 
-        # Update the statistics list with their name and corresponding value.
-        # Easily saves everything inside a list
+        # || Update the statistics list with their name and corresponding value.
+        # || Easily saves everything inside a list
         self.stats.update({
             "total_words": self.total_words,
             "unique_words": vocabulary_size,
@@ -110,19 +110,3 @@ class Analysis:
 
 
 
-    def generate_report(self, stats):
-        """
-        Generates a report from the given statistics.
-        :param stats:
-        :return:
-        """
-        ...
-
-
-    def save_report(self, output_path):
-        """
-
-        :param output_path:
-        :return:
-        """
-        ...
