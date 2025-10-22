@@ -1,7 +1,6 @@
 # Imports >>>
 import re
 from collections import Counter
-from pathlib import Path
 
 
 class Analysis:
@@ -20,25 +19,6 @@ class Analysis:
 
         # All stats together for creating final report.
         self.stats = {}
-
-
-    def handle_text(self, file_path:str) -> str:
-        """
-        Handles the text input from the user.
-        :param file_path:
-        :return: text
-        """
-        text = Path(file_path).read_text(encoding='utf-8', errors='ignore').lower()
-
-        # normalize whitespace
-        text = re.sub(r"\s", " ", text)
-
-        # Remove most punctuation,
-        # keep ? . ! for sentence splitting
-        # Important: replace with space, then squeeze spaces
-        text = re.sub(r"[\",:;()\[\]{}“”‘’`~@#$%^&*+=/\\|<>]", " ", text)
-
-        return text
 
 
     def sentence_analyser(self, text: str) -> None:
@@ -66,7 +46,7 @@ class Analysis:
 
         # Matches any single "word" character (alphanumeric or underscore). Equivalent to [a-zA-Z0-9_].
         # self.words is a list containing all words inside the document
-        self.words = re.findall(r"[a-zA-Z0-9]+(?:'[a-zA-Z0-9]+)?", text)
+        self.words = re.findall(r"[A-Za-z0-9]+(?:\.[A-Za-z0-9]+)*", text)
 
         # The length of the words list equals to the number of words in numbers
         # The unique words is a list of words all words are only counted once so no duplicates
@@ -94,6 +74,8 @@ class Analysis:
         top20_total = sum(c for _, c in top20)
         top20_percentage = (top20_total / self.total_words) * 100 if self.total_words else 0.0
 
+        for i  in self.unique_words:
+            print(i)
 
         # || Update the statistics list with their name and corresponding value.
         # || Easily saves everything inside a list
