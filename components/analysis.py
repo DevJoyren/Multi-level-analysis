@@ -21,17 +21,19 @@ class Analysis:
         self.stats = {}
 
 
-    def sentence_analyser(text):
+    def sentence_analyser(self, text):
+        """
+        :param text:
+        sum of sentences in the text
+        average sentence length in words
+        shortest sentence
+        longest sentence"""
         sentence = re.split(r'[.!?]+', text) # Split text into sentences based on punctuation marks.`
         sentence = [s.strip() for s in sentence if s.strip()]   # Remove any empty strings resulting from the split.
         total = len(sentence)    # Count the total number of sentences.
-        return sentence, total
-    
-    with open ('ai_analysis_report.txt', 'r', encoding="utf-8") as file: # reads the file ??????
-        content = file.read()   # stores the content inside a variable
-        sentences, total_sentences = sentence_analyser(content) # calls the function to analyze sentences
-    
-
+        self.sentences = sentence
+        self.total_sentences = total
+        print(f"Total sentences: {self.total_sentences}")
 
     def word_analyser(self, text:str) -> None :
         """

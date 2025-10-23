@@ -10,13 +10,14 @@ if __name__ == '__main__':
     # Linux   = /
     file_path = 'text_files/artificial_intelligence.txt'
     out_path = './reports/ai_analysis_report.txt'
-    
+
     handler = HandleFile()
     analysis = Analysis()
     report = GenerateReport()
 
     text = handler.handle_text(file_path)
     analysis.word_analyser(text)
+    analysis.sentence_analyser(text)
 
     stats = analysis.stats
 
