@@ -19,7 +19,7 @@ class HandleFile:
         # Remove most punctuation,
         # keep ? . ! for sentence splitting
         # Important: replace with space, then squeeze spaces
-        text = re.sub(r"[\",:;()\[\]{}“”‘’`~@#$%^&*+=/\\|<>.]", " ", text)
+        text = re.sub(r"[\",:;()\[\]{}“”‘’`~@#$%^&*+=/\\|<>]", " ", text)
 
         return text
 

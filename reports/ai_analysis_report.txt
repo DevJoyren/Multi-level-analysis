@@ -1,9 +1,9 @@
 === MULTI LEVEL TEXT ANALYSIS ===
 
-Total words: 13393
-Unique words: 3145
-Richness: 23.48
+Total words: 13361
+Unique words: 3148
+Richness: 23.56
 Most common word length: 2
-Hapax words: 1764
-Top 20 words: [('the', 619), ('and', 459), ('of', 378), ('to', 352), ('in', 290), ('ai', 253), ('a', 241), ('that', 197), ('is', 153), ('for', 131), ('as', 130), ('by', 103), ('are', 103), ('be', 93), ('it', 90), ('or', 84), ('can', 77), ('on', 74), ('with', 71), ('intelligence', 68)]
-Top 20 percentage: 29.61
+Hapax words: 1769
+Top 20 words: [('the', 619), ('and', 459), ('of', 378), ('to', 352), ('in', 290), ('ai', 253), ('a', 240), ('that', 197), ('is', 153), ('for', 131), ('as', 130), ('by', 103), ('are', 103), ('be', 93), ('it', 90), ('or', 84), ('can', 77), ('on', 74), ('with', 71), ('intelligence', 68)]
+Top 20 percentage: 29.68
