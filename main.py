@@ -8,17 +8,8 @@ if __name__ == '__main__':
     # Check which operating system the user is using.
     # Windows = \
     # Linux   = /
-
-    if platform.system() == "Windows":
-        # Input file path and the report save path
-        file_path = 'text_files\artificial_intelligence.txt'
-        out_path = '.\reports\ai_analysis_report.txt'
-
-    else:
-        # Input file path and the report save path
-        file_path = 'text_files/artificial_intelligence.txt'
-        out_path = './reports/ai_analysis_report.txt'
-
+    file_path = 'text_files/artificial_intelligence.txt'
+    out_path = './reports/ai_analysis_report.txt'
 
     handler = HandleFile()
     analysis = Analysis()
@@ -26,6 +17,7 @@ if __name__ == '__main__':
 
     text = handler.handle_text(file_path)
     analysis.word_analyser(text)
+    analysis.sentence_analyser(text)
 
     stats = analysis.stats
 
