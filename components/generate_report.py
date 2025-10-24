@@ -22,7 +22,6 @@ class GenerateReport:
         lines.append(f"Top 20 words: {stats.get('top20_words', 0)}")
         lines.append(f"Top 20 percentage: {stats.get('top20_percentage', 0)}")
         lines.append("")
-
         return '\n'.join(lines).strip()
 
     def save_report(self, output_path: str, report_content: str) -> None:
