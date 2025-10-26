@@ -94,8 +94,6 @@ class Analysis:
         top20_total = sum(c for _, c in top20)
         top20_percentage = (top20_total / self.total_words) * 100 if self.total_words else 0.0
 
-        for i  in self.unique_words:
-            print(i)
 
         # || Update the statistics list with their name and corresponding value.
         # || Easily saves everything inside a list
