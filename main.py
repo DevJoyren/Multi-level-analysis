@@ -1,6 +1,5 @@
 # Imports >>>
-import curses as tui
-import time
+
 from components.analysis import Analysis
 from components.generate_report import GenerateReport
 from components.handle_file import HandleFile
