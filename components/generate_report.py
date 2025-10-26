@@ -1,5 +1,4 @@
 from pathlib import Path
-
 from components.analysis import Analysis
 
 
@@ -7,28 +6,53 @@ class GenerateReport:
 
     def generate_report(self, stats):
         """
-        Generates a report from the given statistics.
+        Generates a natural-language style report from the given statistics.
         """
 
         lines = []
-
-        lines.append(f"=== MULTI LEVEL TEXT ANALYSIS ===")
+        lines.append("=== MULTI LEVEL TEXT ANALYSIS REPORT ===")
         lines.append("")
-        lines.append(f"Total words: {stats.get('total_words', 0)}")
-        lines.append(f"Unique words: {stats.get('unique_words', 0)}")
-        lines.append(f"Richness: {stats.get('richness_percentage', 0)}")
-        lines.append(f"Most common word length: {stats.get('most_common_word_length', 0)}")
-        lines.append(f"Hapax words: {stats.get('hapax_count', 0)}")
-        lines.append(f"Top 20 words: {stats.get('top20_words', 0)}")
-        lines.append(f"Top 20 percentage: {stats.get('top20_percentage', 0)}")
+
+        total_words = stats.get('total_words', 0)
+        unique_words = stats.get('unique_words', 0)
+        richness = stats.get('richness_percentage', 0)
+        most_common_length = stats.get('most_common_word_length', 0)
+        hapax_count = stats.get('hapax_count', 0)
+        top20 = stats.get('top20_words', [])
+        top20_percentage = stats.get('top20_percentage', 0)
+        # TODO ElA add the sentence variables and write the story down below using lines.append
+
+
+        lines.append(
+            f"There are a total of {total_words} words inside this text document, "
+            f"of which {unique_words} are unique. "
+        )
+        lines.append(
+            f"This means the overall richness of the vocabulary is approximately {richness} percent."
+
+            f"The most common word length found in the text is {most_common_length} characters. "
+
+        )
+        lines.append(f"Additionally, {hapax_count} words appeared only once throughout the entire document, "
+            f"indicating a fair amount of lexical diversity.")
+
+        lines.append("The twenty most frequently used words are listed below, ranked by occurrence:")
+        lines.append("")
+
+        for rank, word in enumerate(top20, start=1):
+            lines.append(f"   {rank:>2}. {word}")
+
+        lines.append("")
+        lines.append(
+            f"Together, these top twenty words account for roughly {top20_percentage} percent of the entire text."
+        )
         lines.append("")
         return '\n'.join(lines).strip()
 
+
+
     def save_report(self, output_path: str, report_content: str) -> None:
         """
-        Saves the report from the generated report.
-        :param output_path:
+        Saves the generated report to a text file.
         """
         Path(output_path).write_text(report_content, encoding="utf-8")
-
-

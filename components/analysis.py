@@ -17,6 +17,7 @@ class Analysis:
         self.word_len = Counter()
 
 
+
         # All stats together for creating final report.
         self.stats = {}
 
@@ -77,11 +78,14 @@ class Analysis:
         # find the top 20 most words inside the text and counts them
         # how much is that in total to total words?
         top20 = self.unique_words.most_common(20)
+        #                                                                                                     _     c
+        # _ means ignore the first value inside the top20 list  c means number of times the word appears. [('the', 50)]
+        # it sums all the values up. example: 50 + 45 + 43 ...
         top20_total = sum(c for _, c in top20)
+
+        # divides the top 20 total with the total words in text times a 100
         top20_percentage = (top20_total / self.total_words) * 100 if self.total_words else 0.0
 
-        for i  in self.unique_words:
-            print(i)
 
         # || Update the statistics list with their name and corresponding value.
         # || Easily saves everything inside a list
