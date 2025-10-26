@@ -47,13 +47,6 @@ class GenerateReport:
             f"Together, these top twenty words account for roughly {top20_percentage} percent of the entire text."
         )
         lines.append("")
-        lines.append(
-            "From this analysis, we can see how the author’s language patterns form both repetition and variation, "
-            "revealing which terms hold the most weight within the document."
-        )
-        lines.append("")
-        lines.append("=== END OF ANALYSIS ===")
-
         return '\n'.join(lines).strip()
 
 

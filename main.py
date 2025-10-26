@@ -16,6 +16,9 @@ if __name__ == '__main__':
     analysis = Analysis()
     report = GenerateReport()
 
+    text = handler.handle_text(file_path)
+    analysis.word_analyser(text)
+    analysis.sentence_analyser(text)
 
 
     try:
