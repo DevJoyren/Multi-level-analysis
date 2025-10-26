@@ -17,6 +17,7 @@ class Analysis:
         self.word_len = Counter()
 
 
+
         # All stats together for creating final report.
         self.stats = {}
 
@@ -29,11 +30,24 @@ class Analysis:
         shortest sentence
         longest sentence"""
         sentence = re.split(r'[.!?]+', text) # Split text into sentences based on punctuation marks.`
-        sentence = [s.strip() for s in sentence if s.strip()]   # Remove any empty strings resulting from the split.
         total = len(sentence)    # Count the total number of sentences.
-        self.sentences = sentence
         self.total_sentences = total
         print(f"Total sentences: {self.total_sentences}")
+
+        #average sentence length in words
+        sentence_lengths = [len(re.findall(r"[a-z0-9]+(?:\.)*", s)) for s in sentence if s.strip()]
+        average_length = sum(sentence_lengths) / total if total else 0
+        print(f"Average sentence length (in words): {average_length:.2f}")
+
+        # shortest sentence
+        valid_sentences = [s for s in sentence if len(s.strip()) > 5]
+        shortest_sentence = min(valid_sentences, key=len, default="")
+        print(f"Shortest sentence: {shortest_sentence.strip()}")
+
+        # longest sentence
+        longest_sentence = max((s for s in sentence if s.strip()), key=len, default="")
+        print(f"Longest sentence: {longest_sentence.strip()}")
+                               
 
     def word_analyser(self, text:str) -> None :
         """
