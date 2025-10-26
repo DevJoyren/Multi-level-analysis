@@ -1,9 +1,33 @@
-=== MULTI LEVEL TEXT ANALYSIS ===
+=== MULTI LEVEL TEXT ANALYSIS REPORT ===
 
-Total words: 13361
-Unique words: 3148
-Richness: 23.56
-Most common word length: 2
-Hapax words: 1769
-Top 20 words: [('the', 619), ('and', 459), ('of', 378), ('to', 352), ('in', 290), ('ai', 253), ('a', 240), ('that', 197), ('is', 153), ('for', 131), ('as', 130), ('by', 103), ('are', 103), ('be', 93), ('it', 90), ('or', 84), ('can', 77), ('on', 74), ('with', 71), ('intelligence', 68)]
-Top 20 percentage: 29.68
+There are a total of 13361 words inside this text document, of which 3148 are unique. 
+This means the overall richness of the vocabulary is approximately 23.56 percent.The most common word length found in the text is 2 characters. 
+Additionally, 1769 words appeared only once throughout the entire document, indicating a fair amount of lexical diversity.
+The twenty most frequently used words are listed below, ranked by occurrence:
+
+    1. ('the', 619)
+    2. ('and', 459)
+    3. ('of', 378)
+    4. ('to', 352)
+    5. ('in', 290)
+    6. ('ai', 253)
+    7. ('a', 240)
+    8. ('that', 197)
+    9. ('is', 153)
+   10. ('for', 131)
+   11. ('as', 130)
+   12. ('by', 103)
+   13. ('are', 103)
+   14. ('be', 93)
+   15. ('it', 90)
+   16. ('or', 84)
+   17. ('can', 77)
+   18. ('on', 74)
+   19. ('with', 71)
+   20. ('intelligence', 68)
+
+Together, these top twenty words account for roughly 29.68 percent of the entire text.
+
+From this analysis, we can see how the author’s language patterns form both repetition and variation, revealing which terms hold the most weight within the document.
+
+=== END OF ANALYSIS ===

@@ -1,5 +1,6 @@
 # Imports >>>
-import platform
+import curses as tui
+import time
 from components.analysis import Analysis
 from components.generate_report import GenerateReport
 from components.handle_file import HandleFile
@@ -15,13 +16,21 @@ if __name__ == '__main__':
     analysis = Analysis()
     report = GenerateReport()
 
-    text = handler.handle_text(file_path)
-    analysis.word_analyser(text)
-    analysis.sentence_analyser(text)
 
-    stats = analysis.stats
 
-    final_report = report.generate_report(stats)
-    report.save_report(out_path, final_report)
+    try:
+        text = handler.handle_text(file_path)
+        analysis.word_analyser(text)
+        analysis.sentence_analyser(text)
+
+        stats = analysis.stats
+        final_report = report.generate_report(stats)
+        report.save_report(out_path, final_report)
+
+
+    except FileNotFoundError:
+        print("File not found")
+
+
 
 
