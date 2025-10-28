@@ -32,22 +32,23 @@ This project demonstrates how computational text analysis can be used to extract
 ---
 
 ## File Structure
-
-project/
+```plaintext
+Multi-level-analysis/
 │
 ├── components/
-│ ├── analysis.py # Handles all word and sentence analysis logic
-│ ├── handle_file.py # Manages file reading and text extraction
-│ ├── generate_report.py # Creates and exports the analysis report
+│   ├── analysis.py          # Handles all word and sentence analysis logic
+│   ├── handle_file.py       # Manages file reading and text extraction
+│   ├── generate_report.py   # Creates and exports the analysis report
 │
 ├── text_files/
-│ └── sample.txt # Example input file
+│   └── artificial_intelligence.txt  # Example input file
 │
 ├── reports/
-│ └── ai_analysis_report.pdf # Example generated report
+│   └── ai_analysis_report.txt       # Example generated report
 │
-└── main.py # Main entry point for running the program
-
+├── main.py                # Main entry point for running the analysis
+├── README.md              # Project documentation
+```
 
 ---
 
