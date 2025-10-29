@@ -1,6 +1,6 @@
 === MULTI LEVEL TEXT ANALYSIS REPORT ===
 
-There are in total of 0 sentences in the text fileThe avarage percentage of sentence is : 0The shortest sentence is: 0The longest sentence is: 0
+There are in total of 0 sentences in the text file, the average of 0% words per sentence. the shortest sentence is '0', andthe longest sentence is '0'.
 There are a total of 655 words inside this text document, of which 3148 are unique. 
 This means the overall richness of the vocabulary is approximately 23.56 percent.The most common word length found in the text is 2 characters. 
 Additionally, 1769 words appeared only once throughout the entire document, indicating a fair amount of lexical diversity.
