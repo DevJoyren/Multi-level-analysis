@@ -22,8 +22,8 @@ class GenerateReport:
         top20_percentage = stats.get('top20_percentage', 0)
 
 
-        total_sentences = stats.get('total', 0)
-        sentence_lengths = stats.get("average_sentence", 0)
+        total_sentences = stats.get('total_sentences', 0)
+        sentence_lengths = stats.get("sentence_lengths", 0)
         shortest_sentence = stats.get("shortest_sentence", 0)
         longest_sentence = stats.get("longest_sentence", 0)
 
