@@ -28,9 +28,7 @@ class GenerateReport:
         longest_sentence = stats.get("longest_sentence", 0)
 
         lines.append(f"There are in total of {total_sentences} sentences in the text file, " 
-                     f"the average of {average_lengths}% words per sentence. "
-                     f"the shortest sentence is '{shortest_sentence}', and "
-                     f"the longest sentence is '{longest_sentence}'.")
+                     f"the average of {average_lengths}% words per sentence. ")
 
         lines.append(
             f"There are a total of {total_words} words inside this text document, "
@@ -45,7 +43,7 @@ class GenerateReport:
         lines.append(f"Additionally, {hapax_count} words appeared only once throughout the entire document, "
             f"indicating a fair amount of lexical diversity.")
 
-        lines.append("The twenty most frequently used words are listed below, ranked by occurrence:")
+        lines.append("The twenty most frequently used words, shortest and longest sentences are listed below, ranked by occurrence:")
         lines.append("")
 
         for rank, word in enumerate(top20, start=1):
@@ -53,6 +51,8 @@ class GenerateReport:
 
         lines.append("")
         lines.append(
+            f"the shortest sentence is '{shortest_sentence}."
+            f"the longest sentence is '{longest_sentence}'."
             f"Together, these top twenty words account for roughly {top20_percentage} percent of the entire text."
         )
         lines.append("")
