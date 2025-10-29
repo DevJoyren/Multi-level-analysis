@@ -9,7 +9,6 @@ class Analysis:
         self.sentences = []
         self.total_sentences = 0
 
-
         # word statistics initialization state.
         self.words = []
         self.total_words = 0
@@ -29,30 +28,27 @@ class Analysis:
         average sentence length in words
         shortest sentence
         longest sentence"""
-        sentence = re.split(r'[.!?]+', text) # Split text into sentences based on punctuation marks.`
+        sentence = re.split(r'[.!?]+', text) # Split text into sentences based on punctuation marks.
         total = len(sentence)    # Count the total number of sentences.
         self.total_sentences = total
-        print(f"Total sentences: {self.total_sentences}")
 
-        #average sentence length in words
+        # average sentence length in words
         sentence_lengths = [len(re.findall(r"[a-z0-9]+(?:\.)*", s)) for s in sentence if s.strip()]
         average_length = sum(sentence_lengths) / total if total else 0
-        print(f"Average sentence length (in words): {average_length:.2f}")
 
         # shortest sentence
         valid_sentences = [s for s in sentence if len(s.strip()) > 5]
         shortest_sentence = min(valid_sentences, key=len, default="")
-        print(f"Shortest sentence: {shortest_sentence.strip()}")
-
+        
         # longest sentence
         longest_sentence = max((s for s in sentence if s.strip()), key=len, default="")
-        print(f"Longest sentence: {longest_sentence.strip()}")
 
-        #TODO Ela add your variables inside stats
-        self.stats.update({
-            "total_sentences": total, # like this
+        self.stats.update({"total_words": self.total_sentences, 
+                           "average_sentnce": (average_length, 2),
+                            "shortest": shortest_sentence, 
+                            "longest": longest_sentence})
 
-        })
+
 
     def word_analyser(self, text:str) -> None :
         """
@@ -96,14 +92,11 @@ class Analysis:
         # find the top 20 most words inside the text and counts them
         # how much is that in total to total words?
         top20 = self.unique_words.most_common(20)
-        #                                                                                                     _     c
-        # _ means ignore the first value inside the top20 list  c means number of times the word appears. [('the', 50)]
-        # it sums all the values up. example: 50 + 45 + 43 ...
         top20_total = sum(c for _, c in top20)
-
-        # divides the top 20 total with the total words in text times a 100
         top20_percentage = (top20_total / self.total_words) * 100 if self.total_words else 0.0
 
+        for i  in self.unique_words:
+            print(i)
 
         # || Update the statistics list with their name and corresponding value.
         # || Easily saves everything inside a list

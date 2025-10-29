@@ -20,8 +20,17 @@ class GenerateReport:
         hapax_count = stats.get('hapax_count', 0)
         top20 = stats.get('top20_words', [])
         top20_percentage = stats.get('top20_percentage', 0)
-        # TODO ElA add the sentence variables and write the story down below using lines.append
 
+
+        total_sentences = stats.get('total_sentences', 0)
+        sentence_length = stats.get("average_sentence", 0)
+        shortest_sentence = stats.get("shortest_sentence", 0)
+        longest_sentence = stats.get("longest_sentence", 0)
+
+        lines.append(f"There are in total of {total_sentences} sentences in the text file" 
+                     f"The avarage percentage of sentence is : {sentence_length}"
+                     f"The shortest sentence is: {shortest_sentence}"
+                     f"The longest sentence is: {longest_sentence}") 
 
         lines.append(
             f"There are a total of {total_words} words inside this text document, "
