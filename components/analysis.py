@@ -31,7 +31,7 @@ class Analysis:
         longest sentence"""
         sentence = re.split(r'[.!?]+', text) # Split text into sentences based on punctuation marks.
         total = len(sentence)    # Count the total number of sentences.
-        self.total_sentences = total
+        self.total_sentences = total 
         
         # average sentence length in words
         sentence_lengths = [len(re.findall(r"[a-z0-9]+(?:\.)*", s)) for s in sentence if s.strip()]
@@ -44,8 +44,8 @@ class Analysis:
         # longest sentence
         self.longest_sentence = max((s for s in sentence if s.strip()), key=len, default="")
 
-        self.stats.update({"total_words": self.total_sentences, 
-                           "average_sentences": (self.average_lengths, 2),
+        self.stats.update({"total_sentences": self.total_sentences, 
+                           "average_lengths": self.average_lengths,
                             "shortest_sentence": self.shortest_sentence, 
                             "longest_sentence": self.longest_sentence})
 
