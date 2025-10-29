@@ -9,6 +9,7 @@ class Analysis:
         self.sentences = []
         self.total_sentences = 0
 
+
         # word statistics initialization state.
         self.words = []
         self.total_words = 0
@@ -28,13 +29,13 @@ class Analysis:
         average sentence length in words
         shortest sentence
         longest sentence"""
-        sentence = re.split(r'[.!?]+', text) # Split text into sentences based on punctuation marks.
+        sentence = re.split(r'.!?+', text) # Split text into sentences based on punctuation marks.
         total = len(sentence)    # Count the total number of sentences.
         self.total_sentences = total
 
         # average sentence length in words
         sentence_lengths = [len(re.findall(r"[a-z0-9]+(?:\.)*", s)) for s in sentence if s.strip()]
-        self.average_length = sum(sentence_lengths) / total if total else 0
+        self.average_lengths = sum(sentence_lengths) / total if total else 0
 
         # shortest sentence
         valid_sentences = [s for s in sentence if len(s.strip()) > 5]
@@ -44,9 +45,9 @@ class Analysis:
         self.longest_sentence = max((s for s in sentence if s.strip()), key=len, default="")
 
         self.stats.update({"total_words": self.total_sentences, 
-                           "average_sentnce": (self.average_length, 2),
-                            "shortest": self.shortest_sentence, 
-                            "longest": self.longest_sentence})
+                           "average_sentences": (self.average_lengths, 2),
+                            "shortest_sentence": self.shortest_sentence, 
+                            "longest_sentence": self.longest_sentence})
 
 
 

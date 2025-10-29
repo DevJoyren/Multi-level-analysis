@@ -23,12 +23,12 @@ class GenerateReport:
 
 
         total_sentences = stats.get('total_sentences', 0)
-        sentence_length = stats.get("average_sentence", 0)
+        sentence_lengths = stats.get("average_sentence", 0)
         shortest_sentence = stats.get("shortest_sentence", 0)
         longest_sentence = stats.get("longest_sentence", 0)
 
         lines.append(f"There are in total of {total_sentences} sentences in the text file, " 
-                     f"the average of {sentence_length}% words per sentence. "
+                     f"the average of {sentence_lengths}% words per sentence. "
                      f"the shortest sentence is '{shortest_sentence}', and"
                      f"the longest sentence is '{longest_sentence}'.")
 
