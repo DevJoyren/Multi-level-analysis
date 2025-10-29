@@ -29,13 +29,14 @@ class Analysis:
         average sentence length in words
         shortest sentence
         longest sentence"""
-        sentence = re.split(r'.!?+', text) # Split text into sentences based on punctuation marks.
+        sentence = re.split(r'[.!?]+', text) # Split text into sentences based on punctuation marks.
         total = len(sentence)    # Count the total number of sentences.
         self.total_sentences = total
-
+        print(f"Total sentences: {total}")
+        
         # average sentence length in words
         sentence_lengths = [len(re.findall(r"[a-z0-9]+(?:\.)*", s)) for s in sentence if s.strip()]
-        self.average_lengths = sum(sentence_lengths) / total if total else 0
+        self.average_lengths = sum(sentence_lengths) / total
 
         # shortest sentence
         valid_sentences = [s for s in sentence if len(s.strip()) > 5]
