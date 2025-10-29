@@ -45,7 +45,7 @@ class Analysis:
         self.longest_sentence = max((s for s in sentence if s.strip()), key=len, default="")
 
         self.stats.update({"total_sentences": self.total_sentences, 
-                           "average_lengths": round(self.average_lengths,2),
+                           "average_lengths": round(self.average_lengths , 2),
                             "shortest_sentence": self.shortest_sentence, 
                             "longest_sentence": self.longest_sentence})
 
