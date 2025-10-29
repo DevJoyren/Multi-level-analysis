@@ -8,15 +8,16 @@ class Analysis:
         # sentence statistics initialization state.
         self.sentences = []
         self.total_sentences = 0
-
+        self.shortest_sentences = 0
+        self.longest_sentence = ""
+        self.shortest_sentence = ""
+        self.average_lengths = 0
 
         # word statistics initialization state.
         self.words = []
         self.total_words = 0
         self.unique_words = Counter()
         self.word_len = Counter()
-
-
 
         # All stats together for creating final report.
         self.stats = {}
@@ -28,7 +29,8 @@ class Analysis:
         sum of sentences in the text
         average sentence length in words
         shortest sentence
-        longest sentence"""
+        longest sentence
+        """
         sentence = re.split(r'[.!?]+', text) # Split text into sentences based on punctuation marks.
         total = len(sentence)    # Count the total number of sentences.
         self.total_sentences = total 
@@ -45,32 +47,16 @@ class Analysis:
         # longest sentence
         self.longest_sentence = max((s for s in sentence if s.strip()), key=len, default="")
 
-        self.stats.update({"total_sentences": self.total_sentences, 
-                           "average_lengths": self.average_lengths,
-                            "shortest_sentence": self.shortest_sentence, 
-                            "longest_sentence": self.longest_sentence})
-
-
-
-        #average sentence length in words
-        sentence_lengths = [len(re.findall(r"[a-z0-9]+(?:\.)*", s)) for s in sentence if s.strip()]
-        average_length = sum(sentence_lengths) / total if total else 0
-        print(f"Average sentence length (in words): {average_length:.2f}")
-
-        # shortest sentence
-        valid_sentences = [s for s in sentence if len(s.strip()) > 5]
-        shortest_sentence = min(valid_sentences, key=len, default="")
-        print(f"Shortest sentence: {shortest_sentence.strip()}")
-
-        # longest sentence
-        longest_sentence = max((s for s in sentence if s.strip()), key=len, default="")
-        print(f"Longest sentence: {longest_sentence.strip()}")
-
-        #TODO Ela add your variables inside stats
+        # || Update the statistics list with their name and corresponding value.
+        # || Easily saves everything inside a list
         self.stats.update({
-            "total_sentences": total, # like this
-
+            "total_sentences": self.total_sentences,
+            "average_lengths": round(self.average_lengths, 2),
+            "shortest_sentence": self.shortest_sentence,
+            "longest_sentence": self.longest_sentence
         })
+
+
 
     def word_analyser(self, text:str) -> None :
         """
@@ -116,9 +102,6 @@ class Analysis:
         top20 = self.unique_words.most_common(20)
         top20_total = sum(c for _, c in top20)
         top20_percentage = (top20_total / self.total_words) * 100 if self.total_words else 0.0
-
-        for i  in self.unique_words:
-            print(i)
 
         # || Update the statistics list with their name and corresponding value.
         # || Easily saves everything inside a list

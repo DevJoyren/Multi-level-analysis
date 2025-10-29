@@ -8,6 +8,8 @@ class GenerateReport:
         """
         Generates a natural-language style report from the given statistics.
         """
+        # Add variables to use within generating the report
+        # We get them from the list stats
 
         lines = []
         lines.append("=== MULTI LEVEL TEXT ANALYSIS REPORT ===")
@@ -27,18 +29,22 @@ class GenerateReport:
         shortest_sentence = stats.get("shortest_sentence", 0)
         longest_sentence = stats.get("longest_sentence", 0)
 
+
+        # Total sentences
         lines.append(f"There are in total of {total_sentences} sentences in the text file, " 
-                     f"the average of {average_lengths}% words per sentence. ")
+                     f"with an average of {average_lengths} words per sentence.")
+
+        # Shortest and longest sentence
+        lines.append(
+            f"The shortest sentence inside this document contains {shortest_sentence} words."
+            f"While the longest sentence inside this document contains {longest_sentence} words.\n"
+        )
 
         lines.append(
             f"There are a total of {total_words} words inside this text document, "
             f"of which {unique_words} are unique. \n"
-            f"THE SHORTEST SENTENCE: '{shortest_sentence}'. \n"
-            f"THE LONGEST SENTENCE: '{longest_sentence}'. \n\n"
-        )
-        lines.append(
+            
             f"This means the overall richness of the vocabulary is approximately {richness} percent."
-
             f"The most common word length found in the text is {most_common_length} characters. "
 
         )
@@ -48,13 +54,29 @@ class GenerateReport:
         lines.append("The twenty most frequently used words are listed below, ranked by occurrence:")
         lines.append("")
 
-        for rank, word in enumerate(top20, start=1):
-            lines.append(f"   {rank:>2}. {word}")
+        if top20 and isinstance(top20[0], tuple):
+            max_count = top20[0][1]  # assume sorted descending by frequency
+            lines.append("The twenty most frequently used words are listed below, ranked by occurrence:")
+            lines.append("")
+
+            for rank, (word, count) in enumerate(top20, start=1):
+                # Normalize the bar length: scale count to 100% (max = 20 chars)
+                bar_length = int((count / max_count) * 20)
+                bar = "=" * bar_length
+                lines.append(f"{rank:>2}. {word:<12} {bar} ({count})")
+        else:
+            # fallback if only words (no counts)
+            lines.append("The twenty most frequently used words are listed below, ranked by occurrence:")
+            lines.append("")
+            for rank, word in enumerate(top20, start=1):
+                lines.append(f"{rank:>2}. {word}")
 
         lines.append("")
+
         lines.append(
-            f"Together, these top twenty words account for roughly {top20_percentage} percent of the entire text."
+            f"Together, these top twenty words account for roughly {top20_percentage}% of the entire text."
         )
+
         lines.append("")
         return '\n'.join(lines).strip()
 
