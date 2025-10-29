@@ -22,14 +22,14 @@ class GenerateReport:
         top20_percentage = stats.get('top20_percentage', 0)
 
 
-        self.total_sentence = stats.get('total', 0)
-        self.sentence_lengths = stats.get("average_sentence", 0)
+        total_sentences = stats.get('total', 0)
+        sentence_lengths = stats.get("average_sentence", 0)
         shortest_sentence = stats.get("shortest_sentence", 0)
         longest_sentence = stats.get("longest_sentence", 0)
 
-        lines.append(f"There are in total of {self.total_sentence} sentences in the text file, " 
-                     f"the average of {self.sentence_lengths}% words per sentence. "
-                     f"the shortest sentence is '{shortest_sentence}', and"
+        lines.append(f"There are in total of {total_sentences} sentences in the text file, " 
+                     f"the average of {sentence_lengths}% words per sentence. "
+                     f"the shortest sentence is '{shortest_sentence}', and "
                      f"the longest sentence is '{longest_sentence}'.")
 
         lines.append(
