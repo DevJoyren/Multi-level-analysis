@@ -32,7 +32,6 @@ class Analysis:
         sentence = re.split(r'[.!?]+', text) # Split text into sentences based on punctuation marks.
         total = len(sentence)    # Count the total number of sentences.
         self.total_sentences = total
-        print(f"Total sentences: {total}")
         
         # average sentence length in words
         sentence_lengths = [len(re.findall(r"[a-z0-9]+(?:\.)*", s)) for s in sentence if s.strip()]
