@@ -51,8 +51,8 @@ class GenerateReport:
 
         lines.append("")
         lines.append(
-            f"the shortest sentence is '{shortest_sentence}."
-            f"the longest sentence is '{longest_sentence}'."
+            f"THE SHORTEST SENTENCE: '{shortest_sentence}'. "
+            f"THE LONGEST SENTENCE: '{longest_sentence}'. "
             f"Together, these top twenty words account for roughly {top20_percentage} percent of the entire text."
         )
         lines.append("")
