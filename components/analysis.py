@@ -43,9 +43,13 @@ class Analysis:
         # shortest sentence
         valid_sentences = [s for s in sentence if len(s.strip()) > 5]
         self.shortest_sentence = min(valid_sentences, key=len, default="")
-        
+        self.shortest_sentence = re.findall(r"[A-Za-z0-9]+(?:\.[A-Za-z0-9]+)*", self.shortest_sentence)
+        self.shortest_sentence = len(self.shortest_sentence)
         # longest sentence
         self.longest_sentence = max((s for s in sentence if s.strip()), key=len, default="")
+        self.longest_sentence = re.findall(r"[A-Za-z0-9]+(?:\.[A-Za-z0-9]+)*", self.longest_sentence)
+        self.longest_sentence = len(self.longest_sentence)
+
 
         # || Update the statistics list with their name and corresponding value.
         # || Easily saves everything inside a list
@@ -55,8 +59,6 @@ class Analysis:
             "shortest_sentence": self.shortest_sentence,
             "longest_sentence": self.longest_sentence
         })
-
-
 
     def word_analyser(self, text:str) -> None :
         """
