@@ -36,6 +36,7 @@ class Analysis:
         # average sentence length in words
         sentence_lengths = [len(re.findall(r"[a-z0-9]+(?:\.)*", s)) for s in sentence if s.strip()]
         self.average_lengths = sum(sentence_lengths) / total
+        round(self.average_lengths , 2)
 
         # shortest sentence
         valid_sentences = [s for s in sentence if len(s.strip()) > 5]
@@ -45,7 +46,7 @@ class Analysis:
         self.longest_sentence = max((s for s in sentence if s.strip()), key=len, default="")
 
         self.stats.update({"total_sentences": self.total_sentences, 
-                           "average_lengths": round(self.average_lengths , 2),
+                           "average_lengths": self.average_lengths,
                             "shortest_sentence": self.shortest_sentence, 
                             "longest_sentence": self.longest_sentence})
 
