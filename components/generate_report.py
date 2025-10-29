@@ -32,7 +32,9 @@ class GenerateReport:
 
         lines.append(
             f"There are a total of {total_words} words inside this text document, "
-            f"of which {unique_words} are unique. "
+            f"of which {unique_words} are unique. \n"
+            f"THE SHORTEST SENTENCE: '{shortest_sentence}'. \n"
+            f"THE LONGEST SENTENCE: '{longest_sentence}'. \n\n"
         )
         lines.append(
             f"This means the overall richness of the vocabulary is approximately {richness} percent."
@@ -43,7 +45,7 @@ class GenerateReport:
         lines.append(f"Additionally, {hapax_count} words appeared only once throughout the entire document, "
             f"indicating a fair amount of lexical diversity.")
 
-        lines.append("The twenty most frequently used words, shortest and longest sentences are listed below, ranked by occurrence:")
+        lines.append("The twenty most frequently used words are listed below, ranked by occurrence:")
         lines.append("")
 
         for rank, word in enumerate(top20, start=1):
@@ -51,8 +53,6 @@ class GenerateReport:
 
         lines.append("")
         lines.append(
-            f"THE SHORTEST SENTENCE: '{shortest_sentence}'. "
-            f"THE LONGEST SENTENCE: '{longest_sentence}'. "
             f"Together, these top twenty words account for roughly {top20_percentage} percent of the entire text."
         )
         lines.append("")
